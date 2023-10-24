@@ -5,6 +5,9 @@
         <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-detector.js"></script>
         <script src="https://raw.githack.com/AR-js-org/studio-backend/master/src/modules/marker/tools/gesture-handler.js"></script>
+
+        <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script> 
+
     </head>
 
     <body style="margin: 0; overflow: hidden;">
@@ -16,9 +19,11 @@
             embedded
             gesture-detector
         >
-         
+
         <a-assets>
             <a-asset-item id="avatarModel" src="./assets/scene.gltf"></a-asset-item>
+            <a-asset-item id="giftModel" src="./assets/gifts/source/ChristmasPresents2.gltf"></a-asset-item>
+            <video id="videomp4" autoplay muted loop="true" src="./assets//videos/video.mp4"></video>
         </a-assets>
 
         <a-marker
@@ -31,6 +36,7 @@
                 cursor="fuse: false; rayOrigin: mouse;"
                 id="markerA"
             >
+            <a-entity position="0 2.25 -15" rotation="-90 0 0" particle-system="preset: snow; particleCount: 3000;"></a-entity>
               
             <a-entity position="1.2 0 -0.6" rotation="-90 0 0" scale="3 3 3" text="value: Smartway;color:black"></a-entity>
                 <a-image
@@ -42,7 +48,12 @@
                 ></a-image>
                 <a-entity position="1 0 0.6" rotation="-90 0 0" scale="3 3 3" text="value: Felices fiestas!;color:black"></a-entity>
 
-                <a-gltf-model id="avatar" rotation="-90 0 0" position="1.001 0 .7" scale="0.19 0.19 0.19" src="#avatarModel"></a-gltf-model>
+                <a-gltf-model id="avatar" rotation="-90 0 0" position="-1.1 0 .6" scale="0.19 0.19 0.19" src="#avatarModel"></a-gltf-model>
+
+                <a-gltf-model id="gift" rotation="-90 0 0" position=".8 0 .6" scale="0.001 0.001 0.001" src="#giftModel"></a-gltf-model>
+
+                <a-video src="#videomp4" width=".5" height=".5"  rotation="-90 0 0"  position=".8 0 0"></a-video>
+
             </a-marker>
 
             <a-entity camera></a-entity>
