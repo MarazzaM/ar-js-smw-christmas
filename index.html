@@ -21,8 +21,8 @@
         <a-assets>
             <a-asset-item id="avatarModel" src="./assets/scene.gltf"></a-asset-item>
             <a-asset-item id="giftModel" src="./assets/gifts/source/ChristmasPresents2.gltf"></a-asset-item>
-            <video id="videomp4" autoplay muted loop="true" src="./assets//videos/video.mp4"></video>
-            <video id="videowebm" autoplay muted loop="true" src="./assets//videos/video.webm"></video>
+            <video id="videomp4" autoplay  loop="true" src="./assets//videos/test.mp4"></video>
+            <video id="videowebm" autoplay  loop="true" src="./assets//videos/test.webm"></video>
         </a-assets>
 
         <a-marker id="animated-marker" type="pattern" preset="custom" url="assets/marker.patt"
@@ -67,6 +67,19 @@
               }
             });
 
+
+            marker.addEventListener('markerLost', () => {
+                const testVideo = document.querySelector("#videomp4");
+                const canplayWebm = testVideo.canPlayType( 'video/webm; codecs="vp8, vorbis"' );
+
+              if (canplayWebm == "") {
+                document.querySelector("#videorender").setAttribute("src", "#videomp4");
+                document.querySelector("#videomp4").pause();
+              } else {
+                document.querySelector("#videorender").setAttribute("src", "#videowebm");
+                document.querySelector("#videowebm").pause();
+              }
+            });
       </script>
 </body>
 
