@@ -11,6 +11,7 @@
 
     <script
         src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
@@ -23,6 +24,9 @@
             <a-asset-item id="giftModel" src="./assets/gifts/source/ChristmasPresents2.gltf"></a-asset-item>
             <video id="videomp4" autoplay  loop="true" src="./assets//videos/test.mp4"></video>
             <video id="videowebm" autoplay  loop="true" src="./assets//videos/test.webm"></video>
+            <img id="icon-web" src="./assets/images/web.png" />
+            <img id="icon-phone" src="./assets/images/phone.png" />
+            <img id="icon-location" src="./assets/images/location.png" />
         </a-assets>
 
         <a-marker id="animated-marker" type="pattern" preset="custom" url="assets/marker.patt"
@@ -30,12 +34,18 @@
             <a-entity position="0 2.25 -15" rotation="-90 0 0"
                 particle-system="preset: snow; particleCount: 3000;"></a-entity>
 
-            <a-entity position="1.2 0 -0.6" rotation="-90 0 0" scale="3 3 3"
-                text="value: Smartway;color:black"></a-entity>
+            <a-entity position="1.5 0 -0.6" rotation="-90 0 0" scale="4 4 4"
+                text="value: Smartway te desea;color:black; font:./assets/fonts/xVuR3TvpWQoc89CEcx4__yZx.ttf.fnt"></a-entity>
             <a-image src="assets/asset.png" scale="1 1 1" class="clickable" rotation="-90 0 0"
                 gesture-handler></a-image>
-            <a-entity position="1 0 0.6" rotation="-90 0 0" scale="3 3 3"
-                text="value: Felices fiestas!;color:black"></a-entity>
+                <a-entity
+                position="1.5 0 0.6"
+                rotation="-90 0 0"
+                scale="4 4 4"
+                text="value: ¡Felices fiestas!; color: black; font:./assets/fonts/xVuR3TvpWQoc89CEcx4__yZx.ttf.fnt"
+                animation="property: scale; to: 4 5 8; dir: alternate; loop: true; dur: 500; easing: easeInOutSine"
+              ></a-entity>
+              
 
             <a-gltf-model id="avatar" rotation="-90 0 0" position="-1.1 0 .6" scale="0.19 0.19 0.19"
                 src="#avatarModel"></a-gltf-model>
@@ -44,6 +54,11 @@
                 src="#giftModel"></a-gltf-model>
 
             <a-video src="#videomp4" id="videorender" width=".6" height=".5" rotation="-90 0 0" position=".9 0 0"></a-video>
+
+            <a-image id="web-button" class="clickable" src="#icon-web" alpha-test="0.5" rotation="-90 0 0" position="0.7 0 -0.4" height="0.15" width="0.15"></a-image>
+            <a-image id="phone-button" class="clickable" src="#icon-phone" alpha-test="0.5" rotation="-90 0 0" position="0.9 0 -0.4" height="0.15" width="0.15"></a-image>
+            <a-image id="location-button" class="clickable" src="#icon-location" alpha-test="0.5" rotation="-90 0 0" position="1.1 0 -0.4" height="0.15" width="0.15"></a-image>
+
 
         </a-marker>
 
